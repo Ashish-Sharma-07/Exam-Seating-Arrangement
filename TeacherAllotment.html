@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Supervisor Allotment</title>
+    <script type="text/javascript" src="jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+    var roomNo = 1
+    console.log("ashish"+roomNo);
+    $(function(){
+    var element = $('#AddSupervisor')[0];
+    element.addEventListener('click',function(event) {
+    $('<tr>'
+      +'<th><input type="number" name="roomNo"></th>'
+      +'<th><input type="date" name="dateVal"></th>'
+      +'<th><input type="time" name="timeVal"></th>'
+      +'<th><select class="professors" name="professors">'
+      +'<option value="Mahalaxmi mam">Mahalaxmi Mam</option>'
+      +'<option value="Sushree mam">Sushree Mam</option>'
+      +'<option value="Aruna mam">Aruna Mam</option>'
+      +'<option value="Sunantha mam">Sunantha Mam</option>'
+      +'<option value="Janahavi mam">Janahavi Mam</option>'
+      +'<option value="Sangeetha mam">Sangeetha Mam</option>'
+      +'</select></th>'
+    +'</tr>').insertAfter("table tr:last");
+  });
+});
+    </script>
+  </head>
+  <body>
+    <header>
+      Supervisor Allotment
+    </header>
+    <button id="AddSupervisor">Add</button>
+    <form class="" action="submitTimeTable.php" method="post">
+      <table>
+        <tr>
+          <th>Room No.</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Professor</th>
+        </tr>
+        <tr>
+          <th><input type="number" name="roomNo"></th>
+          <th><input type="date" name="dateVal"></th>
+          <th><input type="time" name="timeVal"></th>
+          <th><select class="professors" name="professors">
+            <option value="Mahalaxmi mam">Mahalaxmi Mam</option>
+            <option value="Sushree mam">Sushree Mam</option>
+            <option value="Aruna mam">Aruna Mam</option>
+            <option value="Sunantha mam">Sunantha Mam</option>
+            <option value="Janahavi mam">Janahavi Mam</option>
+            <option value="Sangeetha mam">Sangeetha Mam</option>
+          </select></th>
+        </tr>
+        </table>
+        <input type="submit" name="Print">
+    </form>
+  </body>
+</html>

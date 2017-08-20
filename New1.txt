@@ -1,0 +1,92 @@
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+    <script>/*
+$(function(){
+var element = $('#AddYear')[0];
+element.addEventListener('click',function(event) {
+  $('<label  for="yearSelect">Year: </label>'
+    +'<select name="yearSelect">'
+    +'<option value="First">First</option>'
+    +'<option value="Second">Second</option>'
+    +'<option value="Third">Third</option>'
+    +'<option value="Fourth">Fourth</option>'
+    +'</select>'
+    +'<label for="Defaulter"> Defaulters: </label>'+
+    '<input type="text" placeholder="eg. 1,2,3,4,5">').insertAfter("form .Row:last");
+});
+});*/
+    </script>
+    
+    //$page->frontToBackOpposite($x1=2,$x2=17.5,$noBench=9);
+//$page->BackToFrontOpposite($x1=6.5,$x2=13,$noBench=8);
+//$page->frontToBackOpposite($x1=11,$x2=8.5,$noBench=8);
+//$page->BackToFrontOpposite($x1=15.5,$x2=4,$noBench=9);
+
+
+/*Printing Roll No. In Opposite Ends*/
+function frontToBackOpposite($x1,$x2,$noBench=9)
+{
+	global $roll,$rollMax;
+	for($i=0;$i<$noBench;$i++)
+		{
+		$this->SetY($this->GetY()+1);
+			if($roll > $rollMax)
+			{
+				$this->SetX($x1);
+				$this->Cell(2,1,"",1,0);
+				$this->SetX($x2);
+				$this->Cell(2,1,"",1,0);
+			}
+			else
+			{
+				$this->SetX($x1);
+				$this->Cell(2,1,"T.E $roll",1,0,'C');
+				$this->SetX($x2);
+				$this->Cell(2,1,"B.E $roll",1,0,'C');
+				$roll++;
+			}
+		}
+}
+
+function BackToFrontOpposite($x1,$x2,$noBench=8)
+{
+	global $roll,$rollMax;
+		for($i=0;$i<$noBench;$i++)	
+		{
+			if($roll > $rollMax)
+			{
+				$this->SetX($x1);
+				$this->Cell(2,1,"",1,0);
+				$this->SetX($x2);
+				$this->Cell(2,1,"",1,0);
+			}
+			else
+			{
+				$this->SetX($x1);
+				$this->Cell(2,1,"T.E $roll",1,0,'C');
+				$this->SetX($x2);
+				$this->Cell(2,1,"B.E $roll",1,0,'C');
+				$roll++;
+			}
+				$this->SetY($this->GetY()-1);
+		}
+}
+
+
+
+/**
+   $page = new pdf('P','cm','A4');
+   while($roll<$rollMax)
+   {
+      $page->AddPage('P','A4',0);
+      $str = <<< __end__
+            YOU ARE HERE
+            __end__;
+      $page->SetX(15.5);
+      $page->Cell(4,1,"$str",0,1,'C');
+      $page->frontToBack($x=2,9);
+      $page->BackToFront($x=6.5,8);
+      $page->frontToBack($x=11,8);
+      $page->BackToFront($x=15.5,9);
+   }
+   $page->Output();  */*/
+?>

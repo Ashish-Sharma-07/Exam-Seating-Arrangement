@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Time Table</title>
+    <script src="timeTable.js"></script>
+    <style>
+      table,td,th{
+        border: 2px solid black;
+      }
+      table th{
+        width:140px;
+      }
+      table td{
+        width:140px;
+      }
+    table td input{
+        width:90%;
+        margin: 2%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      Time Table
+    </header>
+      <br/><br/>
+      <label for="Add">Add Row</label>:
+      <select name="RowCount">
+      <option value="One" id="one">1 Subject</option>
+      <option value="two" id="two">2 Subjects</option>
+    </select>
+    <button name="Add" onclick="addRow()">Add</button>
+    <br/><br/>
+      <form id="form1" action="TimeTablePdf.php" method="post">
+        <label for="Exam">Exam</label>:
+        <select name="Exam">
+        <option value="Unit Test 1">Unit Test 1</option>
+        <option value= "Unit Test 2">Unit Test 2</option>
+        </select><br/><br/>
+        <label for="Year">Year</label>:
+          <select name="Year" id="year">
+              <option value="SE">Second Year</option>
+              <option value= "TE">Third Year</option>
+              <option value= "BE">Fourth Year</option>
+          </select>
+           <label for="Semester">Semester</label>:
+          <select name="Semester" id="sem">
+              <option value="odd">Odd Semester</option>
+              <option value= "even">Even Semester</option>
+          </select><br/><br/>
+        First Half:<br/>
+        <label for="StartTime">Start: </label><input type="time" name="StartTime1" required>
+        <label for="Duration2">End:</label><input type="time" name="FinishTime1" required><br/><br/>
+        Second Half:<br/>
+        <label for="StartTime">Start: </label><input type="time" name="StartTime2" required>
+        <label for="Duration2">End:</label><input type="time" name="FinishTime2" required><br/><br/>
+        <input type="hidden" name="Arrangement"  id="Arrangement"value="">
+        <table>
+          <tbody id="table">
+          <tr>
+            <th >Date</th>
+            <th >Subject</th>
+          </tr>
+        </tbody>
+        </table>
+        <br/><br/>
+        <input type="Submit"/>
+      </form>
+  <div id="sub" onload="getSubject()"></div>
+  </body>
+</html>
